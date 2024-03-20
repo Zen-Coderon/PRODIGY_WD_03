@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <video autoplay loop muted id="background-video">
+        <source src="vecteezy_empty-dark-room-modern-futuristic-sci-fi-background_7635216.mp4" type="video/mp4">
+        <!-- Add additional <source> elements for other video formats if needed -->
+        Your browser does not support the video tag.
+    </video>
+    <nav>
+        <div class="logocontainer">
+            <img src="logo1.gif" alt="Tic Tac Toe Logo">
+
+        </div>
+        <ul>
+            
+            <li class="navhd"> WELCOME TO TIC TAC TOE</li>
+        </ul>
+    </nav>
+    <h1 class="mainhd">Play Now!</h1>
+    <div class="gameContainer">
+        <div class="container">
+            <div class="line"></div>
+            <div class="box bl-0 bt-0" ><span class="boxtext"></span></div>
+            <div class="box bt-0"><span class="boxtext"></span></div>
+            <div class="box bt-0 br-0"><span class="boxtext"></span></div>
+            <div class="box bl-0"><span class="boxtext"></span></div>
+            <div class="box"><span class="boxtext"></span></div>
+            <div class="box br-0"><span class="boxtext"></span></div>
+            <div class="box bl-0 bb-0"><span class="boxtext"></span></div>
+            <div class="box bb-0"><span class="boxtext"></span></div>
+            <div class="box bb-0 br-0"><span class="boxtext"></span></div>
+        </div>
+        <div class="gameInfo">
+            <h1>Welcome To Tic Tac Toe</h1>
+            <div>
+                <span class="Tturn">Turn For X</span>
+                <p style="color: aliceblue;">RESET ......</p>
+<button class="button" id="reset">
+
+  <span class="base"></span>
+ 
+  <span class="red"> </span>
+  
+</button>
+            </div>
+          
+            <div class="imgbox">
+                <img src="win1.gif" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
