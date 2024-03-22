@@ -1,7 +1,7 @@
 console.log("Welcome to Tic Tac Toe")
-let music = new Audio("music.mp3")
+let music = new Audio("peritune-spook4(chosic.com).mp3")
 let audioTurn = new Audio("ting.mp3")
-let gameover = new Audio("gameover.mp3")
+//let gameover = new Audio("gameover.mp3")
 let turn = "X"
 let isgameover = false;
 
@@ -74,6 +74,17 @@ const removeHoverEffect = () => {
         box.classList.remove('hover-effect');
     });
 }
+// Function to play sound effect with ducking
+const playSoundWithDucking = (soundEffect) => {
+    music.volume = 0.2; // Lower background music volume
+    soundEffect.volume=1.0;
+    soundEffect.play();
+    soundEffect.onended = () => {
+        music.volume =0.6; // Restore background music volume after sound effect ends
+    };
+};
+
+
 
 // Function to remove click event listeners from boxes
 const removeClickListeners = () => {
@@ -84,12 +95,13 @@ const removeClickListeners = () => {
 };
 
 // Game Logic
+music.play();
 let handleClick = (event) => {
     let boxtext = event.target.querySelector('.boxtext');
     if (boxtext.innerText === '' && !isgameover) {
         boxtext.innerText = turn;
         turn = changeTurn();
-        audioTurn.play();
+        playSoundWithDucking(audioTurn, 1.0); // Play sound effect with maximum volume
         checkWin();
         checkDraw();
         if (!isgameover) {
@@ -104,7 +116,6 @@ Array.from(boxes).forEach(element => {
     element.addEventListener('click', handleClick);
 });
 
-// Add onclick listener to reset button
 // Add onclick listener to reset button
 reset.addEventListener('click', () => {
     let boxtexts = document.querySelectorAll('.boxtext');
