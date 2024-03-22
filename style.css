@@ -233,7 +233,75 @@ nav ul{
     transform: rotateY(-90deg);
     border-left: 1px solid #fff;
   }
+ /*------ Settings ------*/
+.containerer {
+    --color: #a5a5b0;
+    --size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+  }
   
+  .containerer .mute {
+    position: absolute;
+    animation: keyframes-fill .5s;
+  }
+  
+  .containerer .voice {
+    position: absolute;
+    display: none;
+    animation: keyframes-fill .5s;
+  }
+  
+  /* ------ On check event ------ */
+  .containerer input:checked ~ .mute {
+    display: none;
+  }
+  
+  .containerer input:checked ~ .voice {
+    display: block;
+  }
+  
+  /* ------ Hide the default checkbox ------ */
+  .containerer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* ------ Animation ------ */
+  @keyframes keyframes-fill {
+    0% {
+      transform: rotate(0deg) scale(0);
+      opacity: 0;
+    }
+  
+    50% {
+      transform: rotate(-10deg) scale(1.2);
+    }
+  }
+/* Add CSS for mute button */
+.mute-btn {
+    cursor: pointer;
+    margin-left: auto; /* Move the mute button to the right */
+    align-items: center; /* Align the items vertically */
+}
+
+/* Hide the hidden icon initially */
+.hidden {
+    display: none;
+}
+
+
+
   .button:active>.red::before {
     transform: rotateZ(-45deg) translateY(0);
     height: 0;
