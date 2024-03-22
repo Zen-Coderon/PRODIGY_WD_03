@@ -80,7 +80,7 @@ const playSoundWithDucking = (soundEffect) => {
     soundEffect.volume=1.0;
     soundEffect.play();
     soundEffect.onended = () => {
-        music.volume =0.6; // Restore background music volume after sound effect ends
+        music.volume =0.4; // Restore background music volume after sound effect ends
     };
 };
 
@@ -96,6 +96,7 @@ const removeClickListeners = () => {
 
 // Game Logic
 music.play();
+music.volume =0.2;
 let handleClick = (event) => {
     let boxtext = event.target.querySelector('.boxtext');
     if (boxtext.innerText === '' && !isgameover) {
@@ -114,6 +115,18 @@ let handleClick = (event) => {
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element => {
     element.addEventListener('click', handleClick);
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const muteCheckbox = document.querySelector('.containerer input');
+    const music = new Audio("peritune-spook4(chosic.com).mp3");
+    music.volume=0.5;
+    muteCheckbox.addEventListener('change', () => {
+        if (muteCheckbox.checked) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    });
 });
 
 // Add onclick listener to reset button
